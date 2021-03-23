@@ -1,0 +1,101 @@
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="mainMsg://application.caption">
+    <data>
+        <collection id="visitsDc" class="com.company.clinic.entity.Visit">
+            <view extends="_local">
+                <property name="pet" view="_minimal"/>
+                <property name="endDate"/>
+                <property name="caption"/>
+            </view>
+            <loader id="visitsDl">
+                <query>
+                    <![CDATA[select e from clinic_Visit e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="petsDc" class="com.company.clinic.entity.Pet">
+            <view extends="_local"/>
+            <loader id="petsDl">
+                <query>
+                    <![CDATA[select e from clinic_Pet e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <actions>
+        <action id="refreshAction" caption="msg://refresh" icon="REFRESH"/>
+        <action id="scheduleAction" caption="msg://schedule" icon="CALENDAR_PLUS_O"/>
+    </actions>
+    <layout>
+        <cssLayout id="horizontalWrap"
+                   stylename="c-sidemenu-layout"
+                   height="100%"
+                   width="100%">
+            <cssLayout id="sideMenuContainer"
+                       height="100%"
+                       stylename="c-sidemenu-container">
+                <cssLayout id="sideMenuPanel"
+                           stylename="c-sidemenu-panel">
+                    <cssLayout id="appTitleBox"
+                               stylename="c-sidemenu-title"
+                               width="100%">
+                        <image id="logoImage"
+                               stylename="c-app-icon"
+                               scaleMode="SCALE_DOWN"/>
+                        <label id="appTitleLabel"
+                               stylename="c-app-title"
+                               value="mainMsg://application.logoLabel"/>
+                    </cssLayout>
+                    <sideMenu id="sideMenu"
+                              width="100%"/>
+                    <ftsField id="ftsField"
+                              width="100%"/>
+                    <timeZoneIndicator id="timeZoneIndicator"
+                                       align="MIDDLE_CENTER"/>
+                    <cssLayout id="controlBox"
+                               stylename="c-sidemenu-controls"
+                               width="100%">
+                        <button id="collapseMenuButton"
+                                caption="mainMsg://menuCollapseGlyph"
+                                description="mainMsg://sideMenuCollapse"
+                                stylename="c-sidemenu-collapse-button"/>
+                        <userIndicator id="userIndicator"
+                                       align="MIDDLE_CENTER"/>
+                        <button id="settingsButton"
+                                icon="GEAR"
+                                description="mainMsg://settings"
+                                stylename="c-settings-button"/>
+                        <logoutButton id="logoutButton"
+                                      icon="SIGN_OUT"
+                                      description="mainMsg://logoutBtnDescription"/>
+                        <button id="loginButton"
+                                icon="SIGN_IN"
+                                description="mainMsg://loginBtnDescription"
+                                stylename="c-login-button"/>
+                    </cssLayout>
+                </cssLayout>
+            </cssLayout>
+            <workArea id="workArea"
+                      stylename="c-workarea"
+                      height="100%">
+                <initialLayout spacing="true" margin="true" expand="visitsCalendar">
+                    <hbox id="topBox" spacing="true" width="100%">
+                        <form id="scheduleForm">
+                            <column width="400px">
+                                <lookupField id="petLookup" caption="msg://pet" optionsContainer="petsDc"/>
+                                <dateField id="dateSelector" caption="msg://visit.date" datatype="localDateTime"/>
+                                <buttonsPanel id="butns" spacing="true">
+                                    <button id="scheduleBtn" action="scheduleAction"/>
+                                    <button id="refreshBtn" action="refreshAction"/>
+                                </buttonsPanel>
+                            </column>
+                        </form>
+                        <label align="MIDDLE_CENTER" value="msg://welcome.label"/>
+                    </hbox>
+                    <calendar id="visitsCalendar" width="100%" dataContainer="visitsDc" startDateProperty="date"
+                              descriptionProperty="description" endDateProperty="endDate" captionProperty="caption"/>
+                </initialLayout>
+            </workArea>
+        </cssLayout>
+    </layout>
+</window>

@@ -1,5 +1,6 @@
 package com.company.clinic.entity;
 
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
@@ -61,6 +62,24 @@ public class Visit extends StandardEntity {
             inverseJoinColumns = @JoinColumn(name = "CONSUMABLE_ID"))
     @ManyToMany
     private List<Consumable> consumables;
+
+    @Transient
+    @MetaProperty(related = {"date", "hoursSpent"})
+    public LocalDateTime getEndDate() {
+        if (date != null && hoursSpent != null) {
+            return date.plusHours(hoursSpent);
+        }
+        return null;
+    }
+
+    @Transient
+    @MetaProperty(related = {"pet", "date"})
+    public String getCaption() {
+        if (pet != null && date != null) {
+            return pet.getName()+"["+date.getDayOfWeek()+"]";
+        }
+        return "";
+    }
 
     public Long getNumber() {
         return number;

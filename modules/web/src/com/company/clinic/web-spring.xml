@@ -13,6 +13,7 @@
             <map>
                 <entry key="clinic_VisitService" value="com.company.clinic.service.VisitService"/>
                 <entry key="clinic_ConsumablesService" value="com.company.clinic.service.ConsumablesService"/>
+                <entry key="clinic_VetService" value="com.company.clinic.service.VetService"/>
             </map>
         </property>
     </bean>
