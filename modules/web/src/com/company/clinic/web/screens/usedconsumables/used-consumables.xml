@@ -8,6 +8,9 @@
             <loader id="consumablesDl"/>
         </collection>
     </data>
+    <actions>
+        <action id="runPriceList" icon="PRINT" caption="msg://price.list"/>
+    </actions>
     <layout>
         <dataGrid id="consumablesTable" height="100%" width="100%" dataContainer="consumablesDc">
             <actions>
@@ -15,6 +18,7 @@
             </actions>
             <buttonsPanel alwaysVisible="true">
                 <button id="consumablesTableRefreshBtn" action="consumablesTable.refresh"/>
+                <button id="consumablesTableRunPriceListBtn" action="runPriceList"/>
             </buttonsPanel>
             <columns>
                 <column id="title" property="title"/>

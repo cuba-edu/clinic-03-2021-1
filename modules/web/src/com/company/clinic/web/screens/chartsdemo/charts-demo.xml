@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://chartsDemo.caption"
+        messagesPack="com.company.clinic.web.screens.chartsdemo"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <layout>
+        <chart:xyChart height="100%" width="100%">
+            <chart:data>
+                <chart:item>
+                    <chart:property name="y" value="10" type="double"/>
+                    <chart:property name="x" value="14" type="double"/>
+                    <chart:property name="value" value="59" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="5" type="double"/>
+                    <chart:property name="x" value="3" type="double"/>
+                    <chart:property name="value" value="50" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="-10" type="double"/>
+                    <chart:property name="x" value="8" type="double"/>
+                    <chart:property name="value" value="19" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="-6" type="double"/>
+                    <chart:property name="x" value="5" type="double"/>
+                    <chart:property name="value" value="65" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="15" type="double"/>
+                    <chart:property name="x" value="-4" type="double"/>
+                    <chart:property name="value" value="92" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="13" type="double"/>
+                    <chart:property name="x" value="1" type="double"/>
+                    <chart:property name="value" value="8" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="y" value="1" type="double"/>
+                    <chart:property name="x" value="6" type="double"/>
+                    <chart:property name="value" value="35" type="double"/>
+                </chart:item>
+            </chart:data>
+            <chart:graphs>
+                <chart:graph balloonText="x:[[x]] y:[[y]] value:[[value]]"
+                             bullet="ROUND"
+                             bulletBorderAlpha="0.2"
+                             bulletAlpha="0.8"
+                             lineAlpha="0"
+                             fillAlphas="0"
+                             maxBulletSize="100"
+                             valueField="value"
+                             xField="x"
+                             yField="y"/>
+            </chart:graphs>
+        </chart:xyChart>
+    </layout>
+</window>

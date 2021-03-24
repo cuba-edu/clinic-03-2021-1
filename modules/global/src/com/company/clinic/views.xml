@@ -20,4 +20,22 @@
             </property>
         </property>
     </view>
+    <view entity="report$ReportTemplate" name="report.full" extends="_local">
+        <property name="report">
+            <property name="xml"/>
+            <property name="name"/>
+            <property name="localeNames"/>
+            <property name="code"/>
+            <property name="group" view="_minimal">
+                <property name="code"/>
+            </property>
+            <property name="defaultTemplate" view="_minimal"/>
+            <property name="reportType"/>
+            <property name="description"/>
+            <property name="rolesIdx"/>
+            <property name="screensIdx"/>
+            <property name="templates" view="_minimal"/>
+        </property>
+    </view>
+
 </views>

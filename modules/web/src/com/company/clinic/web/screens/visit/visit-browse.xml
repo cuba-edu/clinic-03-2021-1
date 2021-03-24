@@ -3,7 +3,7 @@
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://visitBrowse.caption"
         focusComponent="visitsTable"
-        messagesPack="com.company.clinic.web.screens.visit">
+        messagesPack="com.company.clinic.web.screens.visit" xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data readOnly="true">
         <collection id="visitsDc"
                     class="com.company.clinic.entity.Visit">
@@ -21,6 +21,24 @@
                 width="800"/>
     <layout expand="visitsTable"
             spacing="true">
+        <chart:pivotTable id="visitsPivotTable"
+                          dataContainer="visitsDc"
+                          width="100%" height="AUTO" renderer="HEATMAP" editable="true">
+            <chart:properties>
+                <chart:property name="amount"/>
+                <chart:property name="date"/>
+                <chart:property name="veterinarian"/>
+            </chart:properties>
+            <chart:columns>
+                <chart:column value="date"/>
+            </chart:columns>
+            <chart:rows>
+                <chart:row value="veterinarian"/>
+            </chart:rows>
+            <chart:aggregation mode="SUM">
+                <chart:property name="amount"/>
+            </chart:aggregation>
+        </chart:pivotTable>
         <filter id="filter"
                 applyTo="visitsTable"
                 dataLoader="visitsDl">
@@ -33,6 +51,7 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+                <action id="listPrintForm" type="listPrintForm"/>
             </actions>
             <columns>
                 <column id="number"/>
@@ -49,6 +68,7 @@
                 <button id="createBtn" action="visitsTable.create"/>
                 <button id="editBtn" action="visitsTable.edit"/>
                 <button id="removeBtn" action="visitsTable.remove"/>
+                <button id="visitsTableListPrintFormBtn" action="visitsTable.listPrintForm"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
