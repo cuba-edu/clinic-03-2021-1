@@ -11,8 +11,9 @@
     <actions>
         <action id="runPriceList" icon="PRINT" caption="msg://price.list"/>
     </actions>
-    <layout>
-        <dataGrid id="consumablesTable" height="100%" width="100%" dataContainer="consumablesDc">
+    <layout expand="consumablesTable">
+        <vbox id="sliderBox" width="100%"/>
+        <dataGrid id="consumablesTable" width="100%" dataContainer="consumablesDc">
             <actions>
                 <action id="refresh" type="refresh"/>
             </actions>

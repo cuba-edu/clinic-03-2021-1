@@ -37,6 +37,14 @@
                 <lookupPickerField id="veterinarianField" optionsContainer="veterinariansDc" property="veterinarian"/>
                 <dateField id="dateField" property="date"/>
                 <textArea id="descriptionField" property="description" rows="5"/>
+                <jsComponent id="descrJs" width="250px" caption="msg://description"
+                   initFunctionName="com_company_clinic_screens_VisitEdit">
+                    <dependencies>
+                        <dependency path="webjar://quill:dist/quill.js" type="JAVASCRIPT"/>
+                        <dependency path="webjar://quill:dist/quill.snow.css" type="STYLESHEET"/>
+                        <dependency path="vaadin://quill/quill-connector.js" type="JAVASCRIPT"/>
+                    </dependencies>
+                </jsComponent>
                 <textField id="hoursSpentField" property="hoursSpent"/>
                 <textField id="amountField" property="amount" editable="false"/>
             </column>
