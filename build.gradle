@@ -137,6 +137,7 @@ configure(webModule) {
     dependencies {
         compileOnly(servletApi)
         compile(globalModule)
+        compile('org.webjars.npm:quill:1.3.6')
     }
 
     jar {

@@ -35,7 +35,21 @@ public class VisitEdit extends StandardEditor<Visit> {
     private void initJsEditor() {
         QuillState state = new QuillState();
         state.options = ParamsMap.of("theme", "snow");
+        descrJs.addFunction("valueChanged", javaScriptCallbackEvent -> {
+            String value = javaScriptCallbackEvent.getArguments().getString(0);
+            getEditedEntity().setDescription(value);
+        });
         descrJs.setState(state);
+    }
+
+    @Subscribe
+    public void onInit(InitEvent event) {
+        initJsEditor();
+    }
+
+    @Subscribe
+    public void onBeforeShow(BeforeShowEvent event) {
+        descrJs.callFunction("setText", getEditedEntity().getDescription());
     }
 
     @Subscribe(id = "visitDc", target = Target.DATA_CONTAINER)
