@@ -13,7 +13,9 @@ public class ClinicWebTestContainer extends TestContainer {
                 "com.haulmont.addon.helium",
                 "com.haulmont.reports",
                 "com.haulmont.charts",
-                "com.haulmont.addon.bproc");
+                "com.haulmont.addon.bproc",
+                "com.haulmont.addon.restapi",
+                "com.haulmont.addon.zookeeper");
         appPropertiesFiles = Arrays.asList(
                 // List the files defined in your web.xml
                 // in appPropertiesConfig context parameter of the web module

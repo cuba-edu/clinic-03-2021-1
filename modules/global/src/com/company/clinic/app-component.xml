@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
-               dependsOn="com.haulmont.reports, com.haulmont.charts, com.haulmont.cuba, com.haulmont.addon.helium, com.haulmont.addon.bproc">
+               dependsOn="com.haulmont.reports, com.haulmont.charts, com.haulmont.addon.zookeeper, com.haulmont.cuba, com.haulmont.addon.restapi, com.haulmont.addon.helium, com.haulmont.addon.bproc">
 
     <module name="global" blocks="*">
         <artifact name="clinic-global" appJar="true"/>
@@ -33,5 +33,12 @@
     </module>
     <module name="web-toolkit" dependsOn="web">
         <artifact name="clinic-web-toolkit"/>
+    </module>
+    <module name="portal" dependsOn="global" blocks="portal">
+        <artifact name="clinic-portal" appJar="true"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/company/clinic/portal-security-spring.xml com/company/clinic/portal-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig" value="+com/company/clinic/portal-dispatcher-spring.xml"/>
+        <property name="cuba.mainMessagePack" value="+com.company.clinic.portal"/>
     </module>
 </app-component>

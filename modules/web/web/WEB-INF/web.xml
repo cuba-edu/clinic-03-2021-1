@@ -17,7 +17,7 @@
     <context-param>
         <param-name>appComponents</param-name>
         <param-value>com.haulmont.cuba com.haulmont.addon.helium com.haulmont.reports com.haulmont.charts
-            com.haulmont.addon.bproc</param-value>
+            com.haulmont.addon.bproc com.haulmont.addon.restapi com.haulmont.addon.zookeeper</param-value>
     </context-param>
     <listener>
         <listener-class>com.vaadin.server.communication.JSR356WebsocketInitializer</listener-class>
